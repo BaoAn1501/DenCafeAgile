@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">DenCafeAgile</string>
+    <string name="CHANNEL_ID">1000</string>
+    <string name="ADMIN_ACCOUNT">admin@gmail.com</string>
+    <string name="ADMIN_PASSWORD">admin@123</string>
+</resources>

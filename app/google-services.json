@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "936586086243",
+    "firebase_url": "https://deninagile-default-rtdb.firebaseio.com",
+    "project_id": "deninagile",
+    "storage_bucket": "deninagile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936586086243:android:660cf4415f93199ad23556",
+        "android_client_info": {
+          "package_name": "com.antbps15545.dencafeagile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "936586086243-78dar1dv73d9cfp4uovjtr3rcd110vsi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.antbps15545.dencafeagile",
+            "certificate_hash": "e2c0f85c710d27a03f9f41db86c84753dac8f3bb"
+          }
+        },
+        {
+          "client_id": "936586086243-prf72ros8bgaua2fdr4qjoffnrm4sk0r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDckt1ltUNmrPCMGgmh9TfF9XXKbqcrOQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "936586086243-prf72ros8bgaua2fdr4qjoffnrm4sk0r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,58 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.DenCafeAgile" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomsheetstyle</item>
+    </style>
+    <style name="bottomsheetstyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="dialog_alert" parent="Theme.AppCompat.Dialog.Alert">
+        <!--màu nền hộp thoại-->
+        <item name="android:colorBackground">@color/White</item>
+        <item name="android:textColorPrimary">@color/Brown</item>
+        <!--màu chữ yes no-->
+        <item name="colorOnPrimary">@color/Blue</item>
+        <!--cài góc bo cho hộp thoại dialog-->
+        <item name="dialogCornerRadius">20dp</item>
+        <!--        <item name="android:windowBackground">@color/White</item>-->
+    </style>
+    <style name="BottomSheetDialog" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="cornerSizeTopLeft">10dp</item>
+        <item name="cornerSizeTopRight">10dp</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:layout_gravity">bottom</item>
+    </style>
+    <style name="AlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="cornerSize">10dp</item>
+        <!--        color for background-->
+        <item name="android:colorBackground">#FFFF</item>
+        <!--        color for text title-->
+        <item name="android:textColorPrimary">@color/Red</item>
+        <!--        color for text yes no-->
+        <item name="colorOnPrimary">@color/Gray</item>
+    </style>
+    <style name="ProgressDialog">
+        <item name="android:textColorPrimary">@color/Red</item>
+        <item name="android:titleTextColor">@color/Green</item>
+        <item name="android:colorPrimary">@color/Blue</item>
+        <item name="colorOnPrimary">@color/Orange</item>
+        <item name="titleTextColor">@color/White</item>
+        <item name="android:colorSecondary">@color/Violet</item>
+        <item name="colorOnSecondary">@color/AliceBlue</item>
+        <item name="colorPrimary">@color/Orange</item>
+        <item name="colorSecondary">@color/Green</item>
+    </style>
+</resources>
