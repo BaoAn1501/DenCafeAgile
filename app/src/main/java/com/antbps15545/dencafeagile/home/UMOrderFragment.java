@@ -24,6 +24,7 @@ import com.antbps15545.dencafeagile.model.OrderState;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class UMOrderFragment extends Fragment {
@@ -64,6 +65,7 @@ public class UMOrderFragment extends Fragment {
                         list.add(state);
                     }
                 }
+                Collections.reverse(list);
                 adapter.notifyDataSetChanged();
             }
 

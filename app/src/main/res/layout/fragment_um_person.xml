@@ -117,5 +117,44 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
+
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/fabUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="10dp"
+            app:fab_addButtonColorNormal="@color/White"
+            app:fab_addButtonColorPressed="@color/LightGrey"
+            app:fab_addButtonPlusIconColor="#3c415e"
+            app:fab_labelStyle="@style/LabelStyle"
+            app:fab_labelsPosition="left"
+            app:layout_constraintBottom_toTopOf="@+id/logout_UserInfo"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabChangeInfoUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:fab_colorNormal="#90a4ae"
+                app:fab_colorPressed="@color/Green"
+                app:fab_icon="@drawable/ic_baseline_person_24"
+                app:fab_size="mini"
+                app:fab_title="Đổi thông tin người dùng" />
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabChangePassUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:fab_colorNormal="#90a4ae"
+                app:fab_colorPressed="@color/Green"
+                app:fab_icon="@drawable/ic_baseline_vpn_key_24"
+                app:fab_size="mini"
+                app:fab_title="Đổi mật khẩu" />
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

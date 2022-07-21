@@ -87,6 +87,7 @@ public class UMProductFragment extends Fragment {
                 list.clear();
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     Product product = postSnapshot.getValue(Product.class);
+                    product.setProductId(postSnapshot.getKey());
                     list.add(product);
                 }
                 adapter.notifyDataSetChanged();

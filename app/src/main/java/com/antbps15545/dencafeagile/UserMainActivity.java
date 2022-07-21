@@ -2,21 +2,31 @@ package com.antbps15545.dencafeagile;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.antbps15545.dencafeagile.model.User;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.antbps15545.dencafeagile.home.UMChatFragment;
 import com.antbps15545.dencafeagile.home.UMOrderFragment;
 import com.antbps15545.dencafeagile.home.UMPersonFragment;
 import com.antbps15545.dencafeagile.home.UMProductFragment;
+import com.google.firebase.database.ValueEventListener;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -24,15 +34,21 @@ import kotlin.jvm.functions.Function1;
 public class UserMainActivity extends AppCompatActivity {
     private MeowBottomNavigation bnv_Main;
     String uid = FirebaseAuth.getInstance().getUid();
+    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("list_user");
+    List<User> list = new ArrayList<>();
     int fromac;
+    int accCount=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main);
-        if(FirebaseAuth.getInstance().getCurrentUser()==null){
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(UserMainActivity.this, SplashActivity.class));
-        }
+        getListUser();
+        Log.e("uid",uid);
+
+//        if(checkUserExist()==0){
+//            FirebaseAuth.getInstance().signOut();
+//            startActivity(new Intent(UserMainActivity.this, SplashActivity.class));
+//        }
         bnv_Main = findViewById(R.id.bnv_UserMain);
         bnv_Main.add(new MeowBottomNavigation.Model(1,R.drawable.ic_baseline_receipt_long_24));
         bnv_Main.add(new MeowBottomNavigation.Model(2,R.drawable.ic_baseline_local_library_24));
@@ -91,6 +107,45 @@ public class UserMainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         status(false);
+    }
+
+    private void getListUser(){
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                list.clear();
+                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    User user = dataSnapshot.getValue(User.class);
+                    list.add(user);
+                }
+                for(int i=0;i<list.size();i++){
+                    if(uid.equals(list.get(i).getUserId())){
+                        accCount++;
+                    }
+                }
+                if(accCount<1){
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(UserMainActivity.this, SplashActivity.class));
+                }
+
+            }
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private int checkUserExist(){
+        int uCount = 0;
+        if(list.size()>0){
+            for(int i=0;i<list.size();i++){
+                if(uid.equals(list.get(i).getUserId())){
+                    uCount++;
+                }
+            }
+        }
+        return uCount;
     }
 
 }

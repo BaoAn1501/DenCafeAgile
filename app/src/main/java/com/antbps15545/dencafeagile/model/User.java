@@ -8,24 +8,21 @@ public class User implements Serializable {
     private String userName;
     private String userPhone;
     private String userEmail;
-    private String userPass;
     private String userImage;
     private boolean status;
 
-    public User(String userId, String userName, String userPhone, String userEmail, String userPass, String userImage) {
+    public User(String userId, String userName, String userPhone, String userEmail, String userImage) {
         this.userId = userId;
         this.userName = userName;
         this.userPhone = userPhone;
         this.userEmail = userEmail;
-        this.userPass = userPass;
         this.userImage = userImage;
     }
 
-    public User(String userName, String userPhone, String userEmail, String userPass, String userImage) {
+    public User(String userName, String userPhone, String userEmail, String userImage) {
         this.userName = userName;
         this.userPhone = userPhone;
         this.userEmail = userEmail;
-        this.userPass = userPass;
         this.userImage = userImage;
     }
 
@@ -86,11 +83,4 @@ public class User implements Serializable {
         this.status = status;
     }
 
-    public String getUserPass() {
-        return userPass;
-    }
-
-    public void setUserPass(String userPass) {
-        this.userPass = userPass;
-    }
 }

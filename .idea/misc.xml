@@ -12,18 +12,25 @@
         <entry key="app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_edit_24_red.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.132" />
         <entry key="app/src/main/res/drawable/ic_baseline_remove_24.xml" value="0.126" />
         <entry key="app/src/main/res/drawable/ic_outline_remove_24.xml" value="0.126" />
         <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_admin_main.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/bottom_sheet_choose.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dialog_change_info.xml" value="0.2234375" />
+        <entry key="app/src/main/res/layout/dialog_change_password.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_product.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_product_type.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_am_person.xml" value="0.221025641025641" />
+        <entry key="app/src/main/res/layout/fragment_change_admin.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_list_product.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_signin.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/fragment_signup.xml" value="0.22447916666666667" />
+        <entry key="app/src/main/res/layout/fragment_um_person.xml" value="0.22447916666666667" />
+        <entry key="app/src/main/res/layout/item_cart.xml" value="0.221025641025641" />
         <entry key="app/src/main/res/layout/item_reveal_dish.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_reveal_type.xml" value="0.1" />
       </map>

@@ -79,7 +79,7 @@ public class SignUpFragment extends Fragment {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                userRef.child(mAuth.getCurrentUser().getUid()).setValue(new User(mAuth.getCurrentUser().getUid(), name, phone, email, pass, "default")).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                userRef.child(mAuth.getCurrentUser().getUid()).setValue(new User(mAuth.getCurrentUser().getUid(), name, phone, email, "default")).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
                                         Toast.makeText(getContext(), "Bạn đã đăng ký thành công", Toast.LENGTH_SHORT).show();

@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +20,12 @@ import androidx.fragment.app.Fragment;
 
 import com.antbps15545.dencafeagile.SplashActivity;
 import com.bumptech.glide.Glide;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -59,6 +63,7 @@ public class UMPersonFragment extends Fragment {
     StorageReference storageRef = FirebaseStorage.getInstance().getReference("imageFolder");
     private Uri mImageUri;
     User mUser;
+    FloatingActionButton fabInfo, fabPass;
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override
@@ -93,6 +98,18 @@ public class UMPersonFragment extends Fragment {
                 }
             }
         });
+        fabInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialogChangeInfo();
+            }
+        });
+        fabPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialogChangePass();
+            }
+        });
     }
 
     private void init(){
@@ -101,6 +118,8 @@ public class UMPersonFragment extends Fragment {
         tvPhone = view.findViewById(R.id.tvPhone_UserInfo);
         ivProfile = view.findViewById(R.id.ivProfile_UserInfo);
         cvLogout = view.findViewById(R.id.logout_UserInfo);
+        fabInfo = view.findViewById(R.id.fabChangeInfoUser);
+        fabPass = view.findViewById(R.id.fabChangePassUser);
     }
 
     private void getUserInfo(){
@@ -208,5 +227,21 @@ public class UMPersonFragment extends Fragment {
         } else {
             Toast.makeText(getContext(), "Bạn chưa chọn ảnh cho loại món", Toast.LENGTH_SHORT).show();
         }
+    }
+    private void showDialogChangePass(){
+        BottomSheetDialog dialog = new BottomSheetDialog(getActivity(), R.style.BottomSheetDialog);
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+        View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_change_password, null);
+        dialog.setContentView(view);
+        dialog.show();
+
+    }
+    private void showDialogChangeInfo(){
+        BottomSheetDialog dialog = new BottomSheetDialog(getActivity(), R.style.BottomSheetDialog);
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+        View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_change_info, null);
+        dialog.setContentView(view);
+        dialog.show();
+
     }
 }

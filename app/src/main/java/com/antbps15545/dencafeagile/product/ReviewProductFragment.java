@@ -118,7 +118,7 @@ public class ReviewProductFragment extends Fragment {
             public void onClick(View v) {
                 int pos2 = 0, pos3 = 0;
                 for(int i=0;i<userList.size();i++){
-                    if(userList.get(i).getUserId().equals(uid)){
+                    if(uid.equals(userList.get(i).getUserId())){
                         pos2 = i;
                     }
                 }
@@ -176,7 +176,7 @@ public class ReviewProductFragment extends Fragment {
                     adapter.notifyDataSetChanged();
                 boolean t = false;
                 for(int i=0;i<rateUnitList.size();i++){
-                    if(rateUnitList.get(i).getUidRating().equals(uid)) {
+                    if(uid.equals(rateUnitList.get(i).getUidRating())) {
                         t = true;
                     } else {
 
@@ -240,6 +240,7 @@ public class ReviewProductFragment extends Fragment {
                 productList.clear();
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     Product product = postSnapshot.getValue(Product.class);
+                    product.setProductId(postSnapshot.getKey());
                     productList.add(product);
                 }
             }

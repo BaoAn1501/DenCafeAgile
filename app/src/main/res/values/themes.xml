@@ -55,4 +55,8 @@
         <item name="colorPrimary">@color/Orange</item>
         <item name="colorSecondary">@color/Green</item>
     </style>
+    <style name="LabelStyle">
+        <item name="android:textColor">@color/Blue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

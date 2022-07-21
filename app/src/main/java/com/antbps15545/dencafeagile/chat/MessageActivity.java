@@ -116,10 +116,9 @@ public class MessageActivity extends AppCompatActivity {
                 }
                 int pos = 0;
                 for(int i=0;i<userList.size();i++){
-                    if(userList.get(i).getUserId().equals(userid)){
+                    if(userid.equals(userList.get(i).getUserId())){
                         pos = i;
                     }
-
                 }
                 tvUsername.setText(userList.get(pos).getUserName());
                 Glide

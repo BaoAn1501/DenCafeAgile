@@ -55,4 +55,5 @@ dependencies {
     implementation 'com.android.volley:volley:1.2.1'
     implementation 'com.googlecode.libphonenumber:libphonenumber:8.12.51'
     implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1'
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
 }

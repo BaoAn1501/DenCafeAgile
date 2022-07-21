@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/tvName_AdminInfo"
-                android:text="Den Cafe"
+                android:text="Default"
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:layout_marginTop="5dp"
@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/tvPhone_AdminInfo"
-                android:text="0387463895"
+                android:text="Default"
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:layout_marginTop="5dp"
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/tvEmail_AdminInfo"
-                android:text="dencafe@gmail.com"
+                android:text="Default"
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:layout_marginTop="5dp"
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/tvAddress_AdminInfo"
-                android:text="07 Phan Văn Trị, Gò Vấp"
+                android:text="Default"
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:layout_marginTop="5dp"

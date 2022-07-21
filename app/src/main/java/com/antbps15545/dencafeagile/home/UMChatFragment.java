@@ -95,7 +95,7 @@ public class UMChatFragment extends Fragment {
                 userList.clear();
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     User user = dataSnapshot.getValue(User.class);
-                    if(user.getUserName().contains(s) && !user.getUserId().equals(uid)){
+                    if(user.getUserName().contains(s) && !uid.equals(user.getUserId())){
                         userList.add(user);
                     } else {
 
@@ -124,7 +124,7 @@ public class UMChatFragment extends Fragment {
                 userList.clear();
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     User user = dataSnapshot.getValue(User.class);
-                    if(!user.getUserId().equals(uid)){
+                    if(!uid.equals(user.getUserId())){
                         userList.add(user);
                     }
                 }

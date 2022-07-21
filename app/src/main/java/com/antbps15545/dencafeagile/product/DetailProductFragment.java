@@ -44,6 +44,7 @@ public class DetailProductFragment extends Fragment {
     StorageReference imgRef;
     Product mProduct;
     String uid = FirebaseAuth.getInstance().getUid();
+//    String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
     List<Cart> cartList = new ArrayList<>();
     List<Wish> wishList = new ArrayList<>();
     List<ProductRating> productRatingList = new ArrayList<>();
