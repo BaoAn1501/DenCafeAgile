@@ -26,6 +26,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -231,9 +235,53 @@ public class UMPersonFragment extends Fragment {
     private void showDialogChangePass(){
         BottomSheetDialog dialog = new BottomSheetDialog(getActivity(), R.style.BottomSheetDialog);
         dialog.getWindow().setGravity(Gravity.BOTTOM);
-        View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_change_password, null);
+        final View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_change_password, null);
+        TextInputEditText curEmail = view.findViewById(R.id.edtCurrentEmail);
+        TextInputEditText curPass = view.findViewById(R.id.edtCurrentPass);
+        TextInputEditText newPass = view.findViewById(R.id.edtNewPass);
+        CardView change = view.findViewById(R.id.cvChangePass);
         dialog.setContentView(view);
         dialog.show();
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(curEmail.getText().toString().trim().equals("") || curPass.getText().toString().trim().equals("") || newPass.getText().toString().trim().equals("")){
+                    String message = "Vui lòng nhập đủ thông tin";
+                    Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                    Log.e("errorinputchangepass",message);
+                } else {
+                    AuthCredential credential = EmailAuthProvider
+                            .getCredential(curEmail.getText().toString().trim(), curPass.getText().toString().trim());
+                    if(curEmail.getText().toString().trim().equals(currentUser.getEmail())){
+                        currentUser.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    currentUser.updatePassword(newPass.getText().toString().trim()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            String message = "Đổi mật khẩu thành công";
+                                            Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                                            mAuth.signOut();
+                                            startActivity(new Intent(getContext(), SplashActivity.class));
+                                        }
+                                    });
+                                }
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                String message = "Tiến trình thất bại";
+                                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    } else {
+                        String message = "Đổi mật khẩu thành công";
+                        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
 
     }
     private void showDialogChangeInfo(){
